@@ -1,0 +1,53 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+#START:layout
+#START:site
+#START:session
+
+en: 
+  hello: "Hello world"
+#END:layout
+#END:site
+#END:session
+
+#START:layout
+  layouts: 
+    application:
+      about_us: 	About Us
+      help: Help
+    header:
+      title: 		Base Social Network
+      home: 		Home
+      sign_in: 		Sign in
+      sign_up: 		Sign up
+      sign_out: 	Sign out
+#END:layout
+
+#START:site
+  site:
+    index:
+      sign_up_now: Sign up now!
+      page_text: This is the home page for Base Social Network.
+    about:
+      page_text: "is a social networking website for Ruby on Rails enthusiasts (and whoever else shows up)."
+    help:
+      page_text: "This page will contain instructions and a frequently asked questions list."
+#END:site
+
+#START:session
+  sessions:
+    new:
+      email:  	Email
+      password: Password
+      new_user: New user
+#END:session
+
+#START:user
+  users:
+    new: 
+      screen_name: "Screen name"
+      email:  	Email
+      password: Password
+      confirmation: Confirmation
+      

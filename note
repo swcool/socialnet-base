@@ -1,0 +1,24 @@
+user model:
+  - rails generate model User screen_name:string email:string
+  - rails generate controller Users new create
+  - rails generate migration add_password_to_users encrypted_password:string
+  - rails r3g migration add_salt_to_users salt:string
+
+  - app/views/layouts/application.html.erb
+validates:
+    - rails console
+    irb> user = User.new(:screen_name => "abcde", :email => "abcde@abcde.com", :password => "abcde"
+    irb> user.errors.full_messages
+    irb> user.errors.on(:password)
+
+css:
+
+rspec:
+  rspec spec/models/user_spec.rb -e "should have an encrypted password attribute"
+  integration:
+	rails generate integration_test layout_links
+oritest:
+  unit-test:
+	- ruby -Itest test/unit/user_test.rb
+    - ruby -Itest test/unit/user_test.rb -n test_screen_name_is_too_short
+  functional-test:

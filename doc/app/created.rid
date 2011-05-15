@@ -1,0 +1,9 @@
+Tue, 03 May 2011 20:01:43 -0700
+doc/README_FOR_APP	Mon, 02 May 2011 21:09:58 -0700
+app/controllers/application_controller.rb	Mon, 02 May 2011 21:09:58 -0700
+app/controllers/site_controller.rb	Mon, 02 May 2011 23:26:21 -0700
+app/controllers/users_controller.rb	Tue, 03 May 2011 18:52:24 -0700
+app/helpers/application_helper.rb	Tue, 03 May 2011 19:19:55 -0700
+app/helpers/site_helper.rb	Mon, 02 May 2011 22:16:48 -0700
+app/helpers/users_helper.rb	Tue, 03 May 2011 15:54:54 -0700
+app/models/user.rb	Tue, 03 May 2011 14:28:17 -0700

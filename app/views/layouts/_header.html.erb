@@ -1,0 +1,26 @@
+<header>
+  <div id="header"><%= link_to logo, root_path %><%= t('layouts.header.title') %>
+    <%= form_tag root_path, :class => 'locale' do %> 
+	  <%= select_tag 'set_locale',
+		options_for_select(LANGUAGES, I18n.locale.to_s),
+				:onchange => 'this.form.submit()' %> 
+	  <%= submit_tag 'submit' %> 
+	  <%= javascript_tag "$$('.locale input').each(Element.hide)" %>
+    <% end %>
+  </div> 
+  <nav>
+    <ul>
+      <li><%= link_to_unless_current t('layouts.header.home'), root_path %></li>
+      <% if signed_in? %>
+      <li><%= link_to_unless_current "Users", users_path %></li>
+      <li><%= link_to_unless_current "Profile", current_user %></li>
+      <li><%= link_to_unless_current "Settings", edit_user_path(current_user) %></li>
+      <% end %>
+      <% if signed_in? %>
+      <li><%= link_to t('layouts.header.sign_out'), signout_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to t('layouts.header.sign_in'), signin_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

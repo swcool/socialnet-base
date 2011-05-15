@@ -1,0 +1,37 @@
+# == Schema Information
+# Schema version: 20110505040712
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  screen_name        :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+testabc:
+  screen_name: 'testabc'
+  email:  'testabc@testabc.com'
+  password:  'testabc'
+
+test123:
+  screen_name:  'test123'
+  email:  'test123@testabc.com'
+  password:  'test123'
+
+valid_user: 
+  id: 1
+  screen_name: millikan 
+  email: ram@example.com 
+  password: electron
+
+invalid_user:
+  id: 2
+  screen_name: aa/noyes 
+  email: ram@example,com 
+  password: sun

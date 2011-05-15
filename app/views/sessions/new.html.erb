@@ -1,0 +1,18 @@
+<%= form_for(:session, :url => sessions_path) do |f| %>
+  <fieldset> 
+	<legend><%= t('layouts.header.sign_in') %></legend>
+    <div class="f_row">
+      <%= f.label t('sessions.new.email') %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="f_row">
+      <%= f.label t('sessions.new.password') %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="f_action">
+      <%= f.submit t('layouts.header.sign_in'), :class => "submit" %>
+    </div>
+  </fieldset>
+<% end %>
+
+<p><%= t('sessions.new.new_user') %>？<%= link_to t('site.index.sign_up_now'), signup_path %></p>
