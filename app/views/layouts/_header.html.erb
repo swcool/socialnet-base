@@ -12,9 +12,9 @@
     <ul>
       <li><%= link_to_unless_current t('layouts.header.home'), root_path %></li>
       <% if signed_in? %>
-      <li><%= link_to_unless_current "Users", users_path %></li>
-      <li><%= link_to_unless_current "Profile", current_user %></li>
-      <li><%= link_to_unless_current "Settings", edit_user_path(current_user) %></li>
+      <li><%= link_to_unless_current t('layouts.header.users'), users_path %></li>
+      <li><%= link_to_unless_current t('layouts.header.profile'), current_user %></li>
+      <li><%= link_to_unless_current t('layouts.header.settings'), edit_user_path(current_user) %></li>
       <% end %>
       <% if signed_in? %>
       <li><%= link_to t('layouts.header.sign_out'), signout_path, :method => :delete %></li>

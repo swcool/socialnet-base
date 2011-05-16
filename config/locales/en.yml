@@ -15,10 +15,13 @@ en:
   layouts: 
     application:
       about_us: 	About Us
-      help: Help
+      help:         Help
     header:
       title: 		Base Social Network
       home: 		Home
+      users:        Users
+      profile:      Profile
+      settings:     Settings
       sign_in: 		Sign in
       sign_up: 		Sign up
       sign_out: 	Sign out
@@ -29,6 +32,7 @@ en:
     index:
       sign_up_now: Sign up now!
       page_text: This is the home page for Base Social Network.
+      what_is_up: What's up?
     about:
       page_text: "is a social networking website for Ruby on Rails enthusiasts (and whoever else shows up)."
     help:
@@ -50,4 +54,17 @@ en:
       email:  	Email
       password: Password
       confirmation: Confirmation
+    index:
+      all_users: "All Users"
+    edit:
+      edit_settings: "Edit User"
+      update: "Update"
+      change: "change"
+#END:user
+
+#START:shared
+  shared:
+    micropost_form:
+      submit:   Submit
+#END:shared
       

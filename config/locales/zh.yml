@@ -16,6 +16,9 @@ zh:
     header:
       title: 		社交网络
       home: 		首页
+      users:        用户
+      profile:      概述
+      settings:     设置
       sign_in:      登录
       sign_up:      注册
       sign_out:     退出
@@ -26,6 +29,7 @@ zh:
     index:
       sign_up_now: 现在就注册!
       page_text: 这是社交网络网站的首页。
+      what_is_up: 什么事?
     about:
       page_text: 内容简界
     help:
@@ -47,6 +51,19 @@ zh:
       email:  	电子邮箱
       password: 密码
       confirmation: 密码确认
+    index:
+      all_users: "所有用户"
+    edit:
+      edit_settings: "修改设置"
+      update: "更新"
+      change: "修改"
+#END:user
+
+#START:shared
+  shared:
+    micropost_form:
+      submit:   发布
+#END:shared
   date:
     formats:
       default: "%Y-%m-%d"
