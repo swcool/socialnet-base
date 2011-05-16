@@ -1,8 +1,8 @@
-# Welcome to Base Social Network
+# Welcome to Social Network Base
 
-Base Social Network is a bare base to build advance social network on the top of it.
+Social Network Base is a bare web application base on social network features.
 
-The privacy aware, personally controlled, do-it-all, open source social network.
+The privacy aware, personalized, do-it-all, open source social network.
 
 **THIS IS PRE ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**  
 **IT IS FUN TO GET RUNNING, BUT EXPECT THINGS TO BE BROKEN.**  
