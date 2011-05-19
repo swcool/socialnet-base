@@ -10,7 +10,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'sqlite3'
 gem 'ffaker', :git => 'git://github.com/swcool/ffaker.git'
 
-# gem 'ffaker', :path => '../ffaker/ffaker/'
+#gem 'ffaker', :path => '../ffaker/ffaker/'
 
 group :development do 
   gem 'rspec-rails', '2.5.0'

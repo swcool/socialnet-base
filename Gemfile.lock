@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/swcool/ffaker.git
-  revision: 31e5e45951f365a767cda64e87b31d0852f1a717
+PATH
+  remote: ../ffaker/ffaker/
   specs:
     ffaker (1.5.0)
 
