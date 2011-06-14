@@ -5,3 +5,5 @@ tmp/
 .buildpath
 .project
 .rspec
+webrat.log
+note
