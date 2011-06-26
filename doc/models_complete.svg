@@ -60,7 +60,7 @@
 <path fill="none" stroke="black" d="M223.5,-143C223.5,-137 229.5,-131 235.5,-131"/>
 <text text-anchor="middle" x="312" y="-250.4" font-family="Times,serif" font-size="14.00">User</text>
 <polyline fill="none" stroke="black" points="223.5,-244 400.5,-244 "/>
-<text text-anchor="start" x="231.5" y="-227.4" font-family="Times,serif" font-size="14.00">screen_name :string</text>
+<text text-anchor="start" x="231.5" y="-227.4" font-family="Times,serif" font-size="14.00">name :string</text>
 <text text-anchor="start" x="231.5" y="-212.4" font-family="Times,serif" font-size="14.00">email :string</text>
 <text text-anchor="start" x="231.5" y="-197.4" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
 <text text-anchor="start" x="231.5" y="-182.4" font-family="Times,serif" font-size="14.00">updated_at :datetime</text>

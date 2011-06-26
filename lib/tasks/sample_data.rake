@@ -11,18 +11,18 @@ namespace :db do
 end
 
 def make_users
-    admin = User.create!(:screen_name => "admin123",
+    admin = User.create!(:name => "admin123",
                          :email => "admin123@example.com",
                          :password => "admin123",
                          :password_confirmation => "admin123")
     admin.toggle!(:admin)
     
-    social = User.create!(:screen_name => "social",
+    social = User.create!(:name => "social",
                          :email => "social@example.com",
                          :password => "password",
                          :password_confirmation => "password")
     
-    example_user = User.create!(:screen_name => "example_user",
+    example_user = User.create!(:name => "example_user",
                          :email => "example@railstutorial.org",
                          :password => "foobar",
                          :password_confirmation => "foobar")
@@ -35,7 +35,7 @@ def make_users
        next if name.size < 3
        email = "example-#{n+1}@railstutorial.org"
        password  = "password"
-       User.create!(:screen_name => name,
+       User.create!(:name => name,
                    :email => email,
                    :password => password,
                    :password_confirmation => password)
@@ -49,7 +49,7 @@ def make_users
        next if name.size < 3
        email = "example-#{n+1}@example.com"
        password  = "password"
-       User.create!(:screen_name => name,
+       User.create!(:name => name,
                    :email => email,
                    :password => password,
                    :password_confirmation => password)

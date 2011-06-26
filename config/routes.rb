@@ -1,5 +1,22 @@
 SocialnetBase::Application.routes.draw do
 
+  # Omniauth pure
+  match "/oasignin" => "services#signin"
+  match "/oasignout" => "services#signout"
+  
+  match '/auth/:service/callback' => 'services#create' 
+  match '/auth/failure' => 'services#failure'
+  
+  resources :services, :only => [:index, :create, :destroy] do
+    collection do
+      get 'signin'
+      get 'signout'
+      get 'signup'
+      post 'newaccount'
+      get 'failure'
+    end
+  end
+    
   resources :users do
 	  member do
 	    get :following, :followers

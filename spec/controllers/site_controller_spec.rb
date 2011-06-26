@@ -24,7 +24,7 @@ describe SiteController do
 
       before(:each) do
         @user = test_sign_in(Factory(:user))
-        other_user = Factory(:user, :screen_name => Factory.next(:screen_name), :email => Factory.next(:email))
+        other_user = Factory(:user, :name => Factory.next(:name), :email => Factory.next(:email))
         other_user.follow!(@user)
       end
 

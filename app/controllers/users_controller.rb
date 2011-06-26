@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def show
 	  @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(:page => params[:page])
-    @title = @user.screen_name
+    @title = @user.name
   end
 
   def new
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 	  @user = User.new(params[:user])
 	  if @user.save
 	    sign_in @user
-	    flash[:success] = "Welcome to Base Social Network! User #{@user.screen_name} created!"
+	    flash[:success] = "Welcome to Base Social Network! User #{@user.name} created!"
 		  redirect_to @user
     else
 	    @title = "Sign up"

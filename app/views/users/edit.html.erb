@@ -3,8 +3,8 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="f_row">
-	<%= f.label t('users.new.screen_name') %>
-    <%= f.text_field :screen_name %>
+	<%= f.label t('users.new.name') %>
+    <%= f.text_field :name %>
   </div>
   <div class="f_row">
 	<%= f.label t('users.new.email') %>

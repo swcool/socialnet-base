@@ -4,7 +4,7 @@ describe User do
 
   before(:each) do
    @attr = {
-      :screen_name => "ExampleUser",
+      :name => "ExampleUser",
       :email => "user@example.com",
       :password => "foobar",
       :password_confirmation => "foobar"
@@ -16,7 +16,7 @@ describe User do
   end
   
   it "should require a name" do
-      no_name_user = User.new(@attr.merge(:screen_name => ""))
+      no_name_user = User.new(@attr.merge(:name => ""))
     no_name_user.should_not be_valid
   end
 
@@ -148,7 +148,7 @@ describe User do
 
       it "should not include a different user's microposts" do
         mp3 = Factory(:micropost,
-                      :user => Factory(:user, :screen_name => Factory.next(:screen_name), :email => Factory.next(:email)))
+                      :user => Factory(:user, :name => Factory.next(:name), :email => Factory.next(:email)))
         @user.feed.include?(mp3).should be_false
       end
 

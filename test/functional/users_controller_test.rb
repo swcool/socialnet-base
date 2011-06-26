@@ -9,7 +9,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_template "new"
     #Test the form and all its tags
     assert_tag "form", :attributes => { :action => "/users", :method => "post" }
-    assert_tag "input", :attributes => { :name => "user[screen_name]", :type => "text", :size => 20, :maxlength => 40 }
+    assert_tag "input", :attributes => { :name => "user[name]", :type => "text", :size => 20, :maxlength => 40 }
 
   end
 

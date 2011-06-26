@@ -4,7 +4,7 @@
 # Table name: users
 #
 #  id                 :integer         not null, primary key
-#  screen_name        :string(255)
+#  name        :string(255)
 #  email              :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
@@ -14,8 +14,9 @@
 
 class User < ActiveRecord::Base
   attr_accessor   :password
-  attr_accessible :screen_name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation
  
+  has_many :services
   has_many :microposts, :dependent => :destroy
   has_many :relationships, :foreign_key => "follower_id", 
 						   :dependent => :destroy
@@ -29,19 +30,19 @@ class User < ActiveRecord::Base
   name_regex = /^[A-Z0-9_]*$/i 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates  :screen_name, :length => { :within => 3..40 },
+  validates  :name, :length => { :within => 3..40 },
 						   :presence => true
 #				           :uniqueness => true,
 #				           :format	=>  { :with => name_regex },
 #				           :presence => { :message => "must contain only letters, numbers, and underscores" }
 
   validates  :email, :length => { :maximum => 50 },
-                     :uniqueness => { :case_sensitive => false },
+ #                    :uniqueness => { :case_sensitive => false },
                      :format => { :with => email_regex },
 					 :presence => { :message => "must be a valid email address" }
 
-  validates  :password, :presence => true, 
-						:confirmation => true,
+ validates  :password, :presence => true, 
+   					:confirmation => true,
 						:length => { :within => 6..40 }
   before_save :encrypt_password
 

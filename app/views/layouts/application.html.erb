@@ -3,40 +3,54 @@
   <head>
     <title><%= @title %></title> 
     <%= csrf_meta_tag %>
-    <%= stylesheet_link_tag "site" %>
+    <%= stylesheet_link_tag :all %>
     <%= javascript_include_tag :defaults %>
   </head>
   <body>
     <div id="whole_page">
-        <%= render 'layouts/header' %>
-	    <div id="nav">   	
-		  <%= link_to_unless_current t('layouts.application.about_us'), about_path %> |
-		  <%= link_to_unless_current t('layouts.application.help'), help_path %>
-		</div>
-        <div id="content">
-          <% flash.each do |key, value| %>
-            <div class="flash <%= key %>"><%= value %></div>
-          <% end %>
-	      <%= yield %>
+      <%= render 'layouts/header' %>
+      
+	  <div id="nav">   	
+		<%= link_to_unless_current t('layouts.application.about_us'), about_path %> |
+		<%= link_to_unless_current t('layouts.application.help'), help_path %>
+	  </div>
+	  
+      <div id="content">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+	    <%= yield %>
+	    <br/>
 	      
-          <% if Rails.env.development? %> 
-			<div id="debug" align="center"> 
-			  <a href="#" onclick="Element.toggle('params_debug_info');return false"> 
-			  params</a> | 
-			  <a href="#" onclick="Element.toggle('session_debug_info');return false"> session</a> 
-			  <fieldset id="params_debug_info" class="debug_info" style="display:none">
-			 	<legend>params</legend>
-				<%= debug(params) %> 
-				</fieldset> 
-				<fieldset id="session_debug_info" class="debug_info"
-style="display:none"> 
-				  <legend>sessions</legend>
-				  <%= debug(session) %> 
-				</fieldset>
-			</div>
-          <% end %>
-	    </div>
-      </div>
-    </div>
+		<div id="services_head">	
+		  <div id="user">
+		     <% if user_signed_in? %>
+		       <nav id="nav_user">
+		          <ul>
+		             <span><%= current_user.email %></span>
+		             <li><%= link_to "Social Login Settings", services_path %>
+		             <!-- li><%= link_to "Sign out", signout_services_path %></li -->
+		          </ul>
+		       </nav>
+		     <% else %>
+		        <nav id="nav_user">
+		           <ul>
+		             <span>Sign in with:</span>
+		             <li><%= link_to "Facebook", "/auth/facebook" %></li>
+		             <li><%= link_to "Google", "/auth/google" %></li>
+		             <li><%= link_to "Twitter", "/auth/twitter" %>
+		             <li><%= link_to "新浪微博", "/auth/tsina" %>
+		             <li><%= link_to "Other", signin_services_path %>
+		           </ul>
+		         </nav>
+		     <% end %>
+		    </div>
+		 </div>
+		 <div>
+		   <%= render 'layouts/debug' %>  
+		 </div>
+	  </div>
+	  
+	 </div>
   </body> 
 </html>

@@ -47,7 +47,7 @@ zh:
 #START:user
   users:
     new: 
-      screen_name: 用户在线名
+      name: 用户在线名
       email:  	电子邮箱
       password: 密码
       confirmation: 密码确认

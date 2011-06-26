@@ -50,7 +50,7 @@ en:
 #START:user
   users:
     new: 
-      screen_name: "Screen name"
+      name: "Screen name"
       email:  	Email
       password: Password
       confirmation: Confirmation

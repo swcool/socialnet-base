@@ -17,9 +17,9 @@
       <li><%= link_to_unless_current t('layouts.header.settings'), edit_user_path(current_user) %></li>
       <% end %>
       <% if signed_in? %>
-      <li><%= link_to t('layouts.header.sign_out'), signout_path, :method => :delete %></li>
+      <li><%= link_to_unless_current t('layouts.header.sign_out'), signout_services_path %></li>
       <% else %>
-      <li><%= link_to t('layouts.header.sign_in'), signin_path %></li>
+      <li><%= link_to_unless_current t('layouts.header.sign_in'), signin_path %></li>
       <% end %>
     </ul>
   </nav>

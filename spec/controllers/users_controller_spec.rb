@@ -17,12 +17,12 @@ describe UsersController do
 
       before(:each) do
         @user = test_sign_in(Factory(:user))
-        second = Factory(:user, :screen_name => "abcdefg", :email => "another@example.com")
-        third  = Factory(:user, :screen_name => "abcdefg1", :email => "another@example.net")
+        second = Factory(:user, :name => "abcdefg", :email => "another@example.com")
+        third  = Factory(:user, :name => "abcdefg1", :email => "another@example.net")
 
         @users = [@user, second, third]
 	30.times do
-          @users << Factory(:user, :screen_name => Factory.next(:screen_name), :email => Factory.next(:email))
+          @users << Factory(:user, :name => Factory.next(:name), :email => Factory.next(:email))
         end
       end
 
@@ -39,7 +39,7 @@ describe UsersController do
       it "should have an element for each user" do
         get :index
         @users[0..2].each do |user|
-          response.should have_selector("li", :content => user.screen_name)
+          response.should have_selector("li", :content => user.name)
         end
       end
     
@@ -72,12 +72,12 @@ describe UsersController do
   
     it "should have the right title" do
       get :show, :id => @user
-      response.should have_selector("title", :content => @user.screen_name)
+      response.should have_selector("title", :content => @user.name)
     end
 
     it "should include the user's name" do
       get :show, :id => @user
-      response.should have_selector("h1", :content => @user.screen_name)
+      response.should have_selector("h1", :content => @user.name)
     end
 
     it "should have a profile image" do
@@ -111,7 +111,7 @@ describe UsersController do
     describe "failure" do
 
       before(:each) do
-        @attr = { :screen_name => "", :email => "", :password => "",
+        @attr = { :name => "", :email => "", :password => "",
                   :password_confirmation => "" }
       end
 
@@ -135,7 +135,7 @@ describe UsersController do
     describe "success" do
 
       before(:each) do
-        @attr = { :screen_name => "New_User", :email => "user@example.com",
+        @attr = { :name => "New_User", :email => "user@example.com",
                   :password => "foobar", :password_confirmation => "foobar" }
       end
 
@@ -193,7 +193,7 @@ describe UsersController do
     describe "failure" do
 
       before(:each) do
-        @attr = { :email => "", :screen_name => "", :password => "",
+        @attr = { :email => "", :name => "", :password => "",
                   :password_confirmation => "" }
       end
 
@@ -211,14 +211,14 @@ describe UsersController do
     describe "success" do
 
       before(:each) do
-        @attr = { :screen_name => "New_Name", :email => "user@example.org",
+        @attr = { :name => "New_Name", :email => "user@example.org",
                   :password => "barbaz", :password_confirmation => "barbaz" }
       end
 
 	  it "should change the user's attributes" do
         put :update, :id => @user, :user => @attr
         @user.reload
-        @user.screen_name.should  == @attr[:screen_name]
+        @user.name.should  == @attr[:name]
         @user.email.should == @attr[:email]
       end
 
@@ -256,7 +256,7 @@ describe UsersController do
     describe "for signed-in users" do
 
       before(:each) do
-        wrong_user = Factory(:user, :screen_name => "aaaaaa", :email => "user@example.net")
+        wrong_user = Factory(:user, :name => "aaaaaa", :email => "user@example.net")
         test_sign_in(wrong_user)
       end
 
@@ -296,7 +296,7 @@ describe UsersController do
     describe "as an admin user" do
 
       before(:each) do
-        admin = Factory(:user, :screen_name => "admin123", :email => "admin@example.com", :admin => true)
+        admin = Factory(:user, :name => "admin123", :email => "admin@example.com", :admin => true)
         test_sign_in(admin)
       end
 
@@ -332,20 +332,20 @@ describe UsersController do
 
       before(:each) do
         @user = test_sign_in(Factory(:user))
-        @other_user = Factory(:user, :screen_name => Factory.next(:screen_name), :email => Factory.next(:email))
+        @other_user = Factory(:user, :name => Factory.next(:name), :email => Factory.next(:email))
         @user.follow!(@other_user)
       end
 
       it "should show user following" do
         get :following, :id => @user
         response.should have_selector("a", :href => user_path(@other_user),
-                                           :content => @other_user.screen_name)
+                                           :content => @other_user.name)
       end
 
       it "should show user followers" do
         get :followers, :id => @other_user
         response.should have_selector("a", :href => user_path(@user),
-                                           :content => @user.screen_name)
+                                           :content => @user.name)
       end
     end
   end
