@@ -84,13 +84,13 @@ class ServicesController < ApplicationController
         # create a new hash
         @authhash = Hash.new
         
-        if service_route == 'facebook'
+        if service_route == '1facebook'
           omniauth['extra']['user_hash']['email'] ? @authhash[:email] =  omniauth['extra']['user_hash']['email'] : @authhash[:email] = 'services@services.com'
           omniauth['extra']['user_hash']['name'] ? @authhash[:name] =  omniauth['extra']['user_hash']['name'] : @authhash[:name] = 'services'
           omniauth['extra']['user_hash']['password'] ? @authhash[:password] =  omniauth['extra']['user_hash']['password'] : @authhash[:password] = 'services'
           omniauth['extra']['user_hash']['id'] ?  @authhash[:uid] =  omniauth['extra']['user_hash']['id'].to_s : @authhash[:uid] = ''
           omniauth['provider'] ? @authhash[:provider] = omniauth['provider'] : @authhash[:provider] = ''
-        elsif service_route == 'github'
+        elsif service_route == '1github'
           omniauth['user_info']['email'] ? @authhash[:email] =  omniauth['user_info']['email'] : @authhash[:email] = 'services@services.com'
           omniauth['user_info']['name'] ? @authhash[:name] =  omniauth['user_info']['name'] : @authhash[:name] = 'services'
           omniauth['user_info']['password'] ? @authhash[:password] =  omniauth['user_info']['password'] : @authhash[:password] = 'services'
