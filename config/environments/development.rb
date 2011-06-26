@@ -35,7 +35,7 @@ SocialnetBase::Application.configure do
      
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
     provider :facebook, 'APP_ID', 'APP_SECRET'
-    provider :twitter, ''CONSUMER_KEY', 'CONSUMER_SECRET'
+    provider :twitter, 'CONSUMER_KEY', 'CONSUMER_SECRET'
     provider :github, 'CLIENT ID', 'SECRET'
     provider :tsina, 'CLIENT ID', 'SECRET'
     
