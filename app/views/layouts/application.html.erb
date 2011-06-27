@@ -28,19 +28,19 @@
 		       <nav id="nav_user">
 		          <ul>
 		             <span><%= current_user.email %></span>
-		             <li><%= link_to "Social Login Settings", services_path %>
-		             <!-- li><%= link_to "Sign out", signout_services_path %></li -->
+		             <li><%= link_to_unless_current "Social Login Settings", services_path %>
+		             <!-- li><%= link_to_unless_current "Sign out", signout_services_path %></li -->
 		          </ul>
 		       </nav>
 		     <% else %>
 		        <nav id="nav_user">
 		           <ul>
 		             <span>Sign in with:</span>
-		             <li><%= link_to "Facebook", "/auth/facebook" %></li>
-		             <li><%= link_to "Google", "/auth/google" %></li>
-		             <li><%= link_to "Twitter", "/auth/twitter" %>
-		             <li><%= link_to "新浪微博", "/auth/tsina" %>
-		             <li><%= link_to "Other", signin_services_path %>
+		             <li><%= link_to_unless_current "Facebook", "/auth/facebook" %></li>
+		             <li><%= link_to_unless_current "Google", "/auth/google" %></li>
+		             <li><%= link_to_unless_current "Twitter", "/auth/twitter" %>
+		             <li><%= link_to_unless_current "新浪微博", "/auth/tsina" %>
+		             <li><%= link_to_unless_current "Other", signin_services_path %>
 		           </ul>
 		         </nav>
 		     <% end %>
