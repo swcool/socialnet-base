@@ -9,10 +9,22 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     OpenID.fetcher.ca_file = "#{Rails.root}/config/ca-bundle.crt"
      
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here  
-    provider :facebook, '140124176062694', '3a58f182a8e0115df8814a1c63583960'
-    provider :twitter, 'UUVVbEaBjm0GrRkG8Mesg', 'Qxi86s8op34KQDokQMOWvjYVJmvP72JDLXur91iiI'
-    provider :github, '82e688018a15aff0c002', '38cfe0c37a1fbd4c30c02726fcd57fa0dab68c5f'
-    provider :tsina, '92783654', 'b8e8af30acaec274d67b119030d9e881'
+      provider :open_id, OpenID::Store::Filesystem.new('/tmp')
+      provider :facebook, '140124176062694', '3a58f182a8e0115df8814a1c63583960',
+               { :client_options => {
+                   :ssl => {
+                     :ca_file => './config/ca-bundle.crt'
+                   }
+                 }
+               }
+        
+      provider :twitter, 'UUVVbEaBjm0GrRkG8Mesg', 'Qxi86s8op34KQDokQMOWvjYVJmvP72JDLXur91iiI'
+      provider :github, '82e688018a15aff0c002', '38cfe0c37a1fbd4c30c02726fcd57fa0dab68c5f',
+                  { :client_options => {
+                      :ssl => { :verify => false } 
+                     }
+                   }
+      provider :tsina, '92783654', 'b8e8af30acaec274d67b119030d9e881'
 
       # localhost
      # provider :facebook, '128046153937514', '0155817c7795a785b328f8e77dd7398f'
