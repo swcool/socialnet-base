@@ -14,6 +14,8 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
     @micropost.destroy
     redirect_back_or root_path
   end
